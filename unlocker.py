@@ -34,10 +34,10 @@ def remove_line_containing_text(file_path, target_text):
         print(f"An ERROR : {e}")
 
 qus = {
-    "What was the name of your best friend as a teenager?":2,
-    "What is the first name of your best friend in high school?": 2,
-    "What is your dream job?": 3,
-    "In what city did your parents meet?": 4
+    "What was the name of your best friend as a teenager?":3,
+    "What is the first name of your best friend in high school?": 3,
+    "What is your dream job?": 4,
+    "In what city did your parents meet?": 5
 }
 
 
@@ -159,9 +159,9 @@ class unlocker():
 
                 """ * sendBirthdayPOST * """
                 data = {
-                    "monthOfYear":self.data_email.split(',')[5].split('/')[0],
-                    "dayOfMonth":self.data_email.split(',')[5].split('/')[1],
-                    "year":self.data_email.split(',')[5].split('/')[2]
+                    "monthOfYear":self.data_email.split(',')[2].split('/')[1],
+                    "dayOfMonth":self.data_email.split(',')[2].split('/')[0],
+                    "year":self.data_email.split(',')[2].split('/')[2]
                 }
                 sendBirthdayPOST = self.session.post('https://iforgot.apple.com/password/verify/birthday',headers=self.headers,json=data)
                 print(sendBirthdayPOST.text)
@@ -250,3 +250,4 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
     futures = [executor.submit(unlocker().unlock,emails ) for emails in open('files/Accounts.txt').read().splitlines()]
     for future in concurrent.futures.as_completed(futures):
         result = future.result()
+
