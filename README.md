@@ -41,7 +41,7 @@ This script automates the process of unlocking Apple ID accounts by solving capt
    - **`files/Accounts.txt`**:
      List of accounts to process, with each line in the following format:
      ```text
-     email,password,,MM/DD/YYYY,qq1,qq2,qq3
+     email,password,qq1,qq2,qq3,MM/DD/YYYY
      ```
      - `email`: The Apple ID email.
      - `password`: The current password.
